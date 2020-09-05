@@ -15,7 +15,7 @@ The third option is to use the Docker image. This has the benefit of making no c
 
 ## Quick Install
 
-You must have Go v1.12+ already installed on your machine in order to install TinyGo.
+You must have Go v1.12+ already installed on your machine in order to install TinyGo. We recommend Go v1.14+.
 
 You can use Homebrew to install TinyGo using the following commands:
 
@@ -28,7 +28,7 @@ You can test that the installation is working properly by running this code whic
 
 ```shell
 $ tinygo version
-tinygo version 0.12.0 darwin/amd64
+tinygo version 0.13.1 darwin/amd64
 ```
 
 If you are only interested in compiling TinyGo code for WebAssembly then you are done with the installation.
@@ -57,17 +57,11 @@ brew install avrdude
 
 ***If you have already followed the "Quick Install" instructions above, you do not need to perform a source install. You are now done with the needed installation. The "Source Install" is for when you want to contribute to TinyGo.***
 
-Make sure that you first turn on Go modules support, like this:
+Start with getting the source code:
 
 ```shell
-export GO111MODULE=on
-```
-
-Now, obtain the TinyGo source code, which should also obtain the various needed dependencies:
-
-```shell
-go get -d -u github.com/tinygo-org/tinygo
-cd $GOPATH/src/github.com/tinygo-org/tinygo
+git clone --recursive https://github.com/tinygo-org/tinygo.git
+cd tinygo
 ```
 
 You now have two options: build LLVM manually or use LLVM from Homebrew. The
@@ -78,7 +72,7 @@ AVR-based boards, you can use Homebrew.
 ### With LLVM from Homebrew
 
 The easiest way to install LLVM on macOS is through
-[Homebrew](https://formulae.brew.sh/formula/llvm). Make sure you install LLVM 8:
+[Homebrew](https://formulae.brew.sh/formula/llvm). Make sure you install LLVM 10:
 
 ```shell
 brew install llvm
@@ -126,7 +120,7 @@ This results in a `tinygo` binary in the `build` directory:
 
 ```shell
 $ ./build/tinygo version
-tinygo version 0.12.0 darwin/amd64
+tinygo version 0.13.1 darwin/amd64
 ```
 
 ### Additional Requirements for Microcontrollers

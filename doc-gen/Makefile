@@ -1,11 +1,13 @@
 
 DEVICES = \
     arduino \
+    arduino-mega2560 \
     arduino-nano \
     arduino-nano33 \
     bluepill \
     circuitplay-bluefruit \
     circuitplay-express \
+    clue_alpha \
     digispark \
     feather-m0 \
     feather-m4 \
@@ -17,6 +19,9 @@ DEVICES = \
     microbit \
     nrf52840-mdk \
     nucleo-f103rb \
+    particle-argon \
+    particle-boron \
+    particle-xenon \
     pca10031 \
     pca10040 \
     pca10056 \

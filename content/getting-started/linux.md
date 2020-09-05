@@ -23,20 +23,20 @@ The third option is to use the Docker image. This has the benefit of making no c
 
 ### Ubuntu/Debian
 
-You must have Go already installed on your machine in order to install TinyGo. We recommend Go v1.13 or above.
+You must have Go already installed on your machine in order to install TinyGo. We recommend Go v1.14 or above.
 
 If you are using Ubuntu or another Debian based Linux on an Intel processor, download the DEB file from Github and install it using the following commands:
 
 ```shell
-wget https://github.com/tinygo-org/tinygo/releases/download/v0.12.0/tinygo_0.12.0_amd64.deb
-sudo dpkg -i tinygo_0.12.0_amd64.deb
+wget https://github.com/tinygo-org/tinygo/releases/download/v0.13.1/tinygo_0.13.1_amd64.deb
+sudo dpkg -i tinygo_0.13.1_amd64.deb
 ```
 
 If you are on a Raspberry Pi or other ARM-based Linux computer, you should use this command instead:
 
 ```shell
-wget https://github.com/tinygo-org/tinygo/releases/download/v0.12.0/tinygo_0.12.0_armhf.deb
-sudo dpkg -i tinygo_0.12.0_armhf.deb
+wget https://github.com/tinygo-org/tinygo/releases/download/v0.13.1/tinygo_0.13.1_armhf.deb
+sudo dpkg -i tinygo_0.13.1_armhf.deb
 ```
 
 You will need to ensure that the path to the `tinygo` executable file is in your `PATH` variable.
@@ -49,7 +49,7 @@ You can test that the installation is working properly by running this code whic
 
 ```shell
 $ tinygo version
-tinygo version 0.12.0 linux/amd64
+tinygo version 0.13.1 linux/amd64
 ```
 
 If you are only interested in compiling TinyGo code for WebAssembly then you are now done with the installation.
@@ -136,17 +136,11 @@ This should allow you to compile and flash TinyGo programs on an Arduino or othe
 
 ***If you have already followed the "Quick Install" instructions above for your distro, you do not need to perform a source install. You are now done with the needed installation. The "Source Install" is for when you want to contribute to TinyGo.***
 
-Before installing make sure that you first turn on Go modules support, like this:
+Start with getting the source code:
 
 ```shell
-export GO111MODULE=on
-```
-
-Now, obtain the TinyGo source code, which should also obtain the various needed dependencies:
-
-```shell
-go get -d -u github.com/tinygo-org/tinygo
-cd $GOPATH/src/github.com/tinygo-org/tinygo
+git clone --recursive https://github.com/tinygo-org/tinygo.git
+cd tinygo
 ```
 
 You now have two options: build LLVM manually or use a LLVM distributed with
@@ -161,13 +155,19 @@ different distribution, please let us know how so we can add it here.
 
 For Debian and Ubuntu, you can install the binaries provided by LLVM on
 [apt.llvm.org](http://apt.llvm.org/). For example, the following commands can be
-used to install LLVM 9 on Debian Stretch:
+used to install LLVM 10 on Debian Buster:
 
 ```shell
-echo 'deb http://apt.llvm.org/stretch/ llvm-toolchain-stretch-9 main' | sudo tee /etc/apt/sources.list.d/llvm.list
+echo 'deb http://apt.llvm.org/buster/ llvm-toolchain-buster-10 main' | sudo tee /etc/apt/sources.list.d/llvm.list
 wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
 sudo apt-get update
-sudo apt-get install clang-9 llvm-9-dev lld-9 libclang-9-dev
+sudo apt-get install clang-10 llvm-10-dev lld-10 libclang-10-dev
+```
+
+Installing TinyGo should now be as easy as:
+
+```shell
+go install
 ```
 
 Note that you should not use `make` when you want to build using a
@@ -211,7 +211,7 @@ This results in a `tinygo` binary in the `build` directory:
 
 ```shell
 $ ./build/tinygo version
-tinygo version 0.12.0 linux/amd64
+tinygo version 0.13.1 linux/amd64
 ```
 
 ### Additional Requirements for Microcontrollers

@@ -1,9 +1,9 @@
 ---
-title: "Arduino Uno"
+title: "Arduino Mega 2560"
 weight: 3
 ---
 
-The [Arduino Uno](https://store.arduino.cc/arduino-uno-rev3) is based on the AVR [ATmega328p](https://www.microchip.com/wwwproducts/en/ATmega328p) microcontroller.
+The [Arduino Mega 2560](https://store.arduino.cc/arduino-mega-2560-rev3) is based on the AVR [ATmega2560](https://www.microchip.com/wwwproducts/en/ATmega2560) microcontroller.
 
 Note: the AVR backend of LLVM is still experimental so you may encounter bugs.
 
@@ -20,11 +20,11 @@ Note: the AVR backend of LLVM is still experimental so you may encounter bugs.
 
 ## Machine Package Docs
 
-[Documentation for the machine package for the Arduino Uno](../machine/arduino)
+[Documentation for the machine package for the Arduino Mega 2560](../machine/arduino-mega2560)
 
 ## Installing dependencies
 
-The Arduino Uno needs a few extra dependencies to work, for example, if you get an error like this:
+The Arduino Mega 2560 needs a few extra dependencies to work, for example, if you get an error like this:
 
 ```text
 /usr/lib/gcc/avr/5.4.0/../../../avr/bin/ld: cannot find -lm
@@ -44,7 +44,7 @@ To fix this, see the installation guide for [Linux](../../getting-started/linux/
 
 ### AVRDude
 
-Programs are loaded onto the Arduino Uno using the `avrdude` command line utility program. You must install this program before you will be able to flash the Arduino Uno board with your TinyGo code.
+Programs are loaded onto the Arduino Mega 2560 using the `avrdude` command line utility program. You must install this program before you will be able to flash the Arduino Uno board with your TinyGo code.
 
 - Plug your Arduino Uno into your computer's USB port.
-- Build and flash your TinyGo program using `tinygo flash -target arduino /path/to/code`
+- Build and flash your TinyGo program using `tinygo flash -target arduino-mega2560 /path/to/code`
